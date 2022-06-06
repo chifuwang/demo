@@ -20,6 +20,7 @@ pipeline {
     }
     stage ('remove current container') {
       steps {
+	    sh "chmod +x ${env.WORKSPACE}/removeCurrentContainer.sh"
 	    sh "${env.WORKSPACE}/removeCurrentContainer.sh"
         //bat "call ${env.WORKSPACE}/removeCurrentContainer.bat ${params.image_name} ${params.image_version}"
       }
