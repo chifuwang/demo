@@ -19,4 +19,4 @@ if "%containerId%" == "" (
 echo container with name %imageName% not found
 )
 
-docker run -p %port%:8443 -v D:\dockerConfig\aisdatawebsvc:C:\config -v D:\Logs\docker\aisdatawebsvc:C:\logs -v D:\SSL:C:\ssl -e HTTP_PROXY="http://proxy.swmed.edu:3128" -e HTTPS_PROXY="http://proxy.swmed.edu:3128" -e NO_PROXY="localhost,127.0.0.1,0.0.0.0,*.swmed.org,aisdkdev1.swmed.edu" -d --name %imageName% %imageName%:%imageVersion%
+docker run -p %port%:8080 -d --name %imageName% %imageName%:%imageVersion%
