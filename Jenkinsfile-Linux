@@ -21,26 +21,30 @@ pipeline {
     stage ('remove current container') {
       steps {
         //bat "call ${env.WORKSPACE}/removeCurrentContainer.bat ${params.image_name} ${params.image_version}"
-        sh docker ps -a
+        sh 'docker ps -a'
       }
     }
     stage ('remove current image') {
       steps {
+        sh 'echo test'
         //bat "call ${env.WORKSPACE}/removeCurrentImage.bat ${params.image_name} ${params.image_version}"
       }
     }
     stage ('clean dangling images') {
       steps {
+        sh 'echo test'
         //bat "call ${env.WORKSPACE}/cleanDanglingImages.bat"
       }
     }
     stage ('build docker image') {
       steps {
+        sh 'echo test'
         //bat "docker build . -t ${params.image_name}:${params.image_version}"
       }
     }
     stage ('start container') {
       steps {
+        sh 'echo test'
         //bat "call ${env.WORKSPACE}/startContainer.bat ${params.host_port} ${params.image_name} ${params.image_version}"
       }
     }
