@@ -14,7 +14,7 @@ public class DemoController {
 		
 		log.info(">>>>>>>>>>>>> Info");
 		log.debug(">>>>>>>>>>> Debug");
-		return "Hello Actuator Info";
+		return "Hello Actuator Info With Jenkins Build Test";
 	}
 	
 }
