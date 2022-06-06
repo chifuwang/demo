@@ -1,8 +1,8 @@
 pipeline {
   agent any
   tools{
-    maven 'Maven 3.8.3'
-    jdk 'JDK11'
+    maven 'Maven385'
+    jdk 'jdk11'
   }
   parameters {
     string(name: 'image_name', defaultValue: 'demo')
