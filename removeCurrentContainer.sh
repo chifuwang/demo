@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "retrieve existing container id"
+echo "remove current container sh"
 docker ps -a
 
 #echo off
