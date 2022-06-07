@@ -1,6 +1,8 @@
 #!/bin/bash
 
 echo "remove current container sh"
+echo "imageName: $1"
+echo "imageVersion: $2"
 docker ps -a
 
 #echo off

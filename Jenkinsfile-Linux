@@ -21,13 +21,13 @@ pipeline {
     stage ('remove current container') {
       steps {
 	    sh "chmod +x ${env.WORKSPACE}/removeCurrentContainer.sh"
-	    sh "${env.WORKSPACE}/removeCurrentContainer.sh"
+	    sh "${env.WORKSPACE}/removeCurrentContainer.sh ${params.image_name} ${params.image_version}"
       }
     }
     stage ('remove current image') {
       steps {
         sh "chmod +x ${env.WORKSPACE}/removeCurrentImage.sh"
-		sh "${env.WORKSPACE}/removeCurrentImage.sh"
+		sh "${env.WORKSPACE}/removeCurrentImage.sh ${params.image_name} ${params.image_version}"
       }
     }
     stage ('clean dangling images') {

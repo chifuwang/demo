@@ -24,3 +24,6 @@
 #docker run -p %port%:8080 -d --name %imageName% %imageName%:%imageVersion%
 
 echo "star container sh"
+echo "port: $1"
+echo "imageName: $2"
+echo "imageVersion: $3"

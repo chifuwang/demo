@@ -18,3 +18,5 @@
 #)
 
 echo "remove current image sh"
+echo "imageName: $1"
+echo "imageVersion: $2"
