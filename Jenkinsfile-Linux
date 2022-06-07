@@ -20,30 +20,59 @@ pipeline {
     }
     stage ('remove current container') {
       steps {
+<<<<<<< HEAD
 	    sh "chmod +x ${env.WORKSPACE}/removeCurrentContainer.sh"
 	    sh "${env.WORKSPACE}/removeCurrentContainer.sh"
         //bat "call ${env.WORKSPACE}/removeCurrentContainer.bat ${params.image_name} ${params.image_version}"
+=======
+        //bat "call ${env.WORKSPACE}/removeCurrentContainer.bat ${params.image_name} ${params.image_version}"
+        sh 'docker ps -a'
+>>>>>>> 1038009f293cd448f23d5e4be753728c097d6dd3
       }
     }
     stage ('remove current image') {
       steps {
+<<<<<<< HEAD
         bat "call ${env.WORKSPACE}/removeCurrentImage.bat ${params.image_name} ${params.image_version}"
+=======
+        sh 'echo test'
+        //bat "call ${env.WORKSPACE}/removeCurrentImage.bat ${params.image_name} ${params.image_version}"
+>>>>>>> 1038009f293cd448f23d5e4be753728c097d6dd3
       }
     }
     stage ('clean dangling images') {
       steps {
+<<<<<<< HEAD
         bat "call ${env.WORKSPACE}/cleanDanglingImages.bat"
+=======
+        sh 'echo test'
+        //bat "call ${env.WORKSPACE}/cleanDanglingImages.bat"
+>>>>>>> 1038009f293cd448f23d5e4be753728c097d6dd3
       }
     }
     stage ('build docker image') {
       steps {
+<<<<<<< HEAD
         bat "docker build . -t ${params.image_name}:${params.image_version}"
+=======
+        sh 'echo test'
+        //bat "docker build . -t ${params.image_name}:${params.image_version}"
+>>>>>>> 1038009f293cd448f23d5e4be753728c097d6dd3
       }
     }
     stage ('start container') {
       steps {
+<<<<<<< HEAD
         bat "call ${env.WORKSPACE}/startContainer.bat ${params.host_port} ${params.image_name} ${params.image_version}"
       }
     }
   }
 }
+=======
+        sh 'echo test'
+        //bat "call ${env.WORKSPACE}/startContainer.bat ${params.host_port} ${params.image_name} ${params.image_version}"
+      }
+    }
+  }
+}
+>>>>>>> 1038009f293cd448f23d5e4be753728c097d6dd3
