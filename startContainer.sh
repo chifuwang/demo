@@ -31,5 +31,5 @@ port=$1
 imageName="$2"
 imageVersion="$3"
 echo "retrieve container id"
-containerId = `docker ps -a -q --filter name="${imageName}" `
+containerId = `sudo docker ps -a -q --filter name="${imageName}" `
 echo "containerId: ${containerId}"
