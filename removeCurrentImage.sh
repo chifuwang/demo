@@ -1,22 +1,17 @@
 #!/bin/bash
 
-#echo off
-#set imageName=%1
-#set imageVersion=%2
-#
-#docker images "%imageName%:%imageVersion%" -q > tmpFile
-#set /p imageId= < tmpFile
-#del tmpFile
-#
-#if NOT "%imageId%" == "" (
-#  echo remove existing image
-#  docker rmi %imageId%
-#)
-#
-#if "%imageId%" == "" (
-#  echo image %imageName%:%imageVersion% not found
-#)
-
 echo "remove current image sh"
 echo "imageName: $1"
 echo "imageVersion: $2"
+imageName="$1"
+imageVersion="$2"
+
+echo "retrieve image Id"
+imageId=$(docker images "${imageName%}:${imageVersion%}" -q)
+if [ "${imageId}" = "" ]; then
+    echo "Existing image is not found!"
+else
+    echo "Existing image ${imageId} is found and will be removed!"
+	echo "Remove existing image ${imageId}..."
+	docker rmi ${imageId}
+fi

@@ -3,24 +3,17 @@
 echo "remove current container sh"
 echo "imageName: $1"
 echo "imageVersion: $2"
-docker ps -a
+imageName="$1"
+imageVersion="$2"
 
-#echo off
-#set imageName=%1
-#set imageVersion=%2
-#
-#echo retrieve existing container id
-#docker ps -a -q --filter name=%imageName% > tmpFile
-#set /p containerId= < tmpFile
-#del tmpFile
-#
-#if NOT "%containerId%" == "" (
-#  echo stop container %containerId%
-#  docker container stop %containerId%
-#  echo remove container %containerId%
-#  docker container rm %containerId%
-#)
-#
-#if "%containerId%" == "" (
-#  echo container with name %imageName% not found
-#)
+echo "retrieve container id"
+containerId=$(docker ps -a -q --filter name="${imageName}")
+if [ "${containerId}" = "" ]; then
+    echo "Existing container is not found!"
+else
+    echo "Existing container ${containerId} is found and will be removed!"
+	echo "Stop existing container ${containerId}..."
+	docker container stop ${containerId}
+	echo "Remove existing container ${containerId}..."
+	docker container rm ${containerId}
+fi
